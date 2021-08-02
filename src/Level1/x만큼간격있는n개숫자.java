@@ -1,4 +1,4 @@
-
+package Level1;
 
 public class x만큼간격있는n개숫자 {
     public static void main(String[] args) {
