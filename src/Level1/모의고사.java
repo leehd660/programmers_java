@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class 모의고사 {
-    public int[] solution(int[] answers) {
+    public static void main(String[] args) {
+        int[] numlist = {2,1,2,3,2};
+        for (int i : solution1(numlist)){
+            System.out.println(i);
+        }
+    }
+
+    public static int[] solution(int[] answers) {
         List<Integer> ans = new ArrayList<>();
         int[] numlist = {0,0,0};
         int num1 =0;
@@ -58,6 +65,8 @@ public class 모의고사 {
                 }
             }
         }
+        System.out.println(numlist[0]);
+        System.out.println(num1+";;;"+num2+";;;"+num3+";;;");
         if(numlist[0] == num1){
             ans.add(1);
         }
@@ -79,7 +88,7 @@ public class 모의고사 {
 
 
 
-    public int[] solution1(int[] answers) {
+    public static int[] solution1(int[] answers) {
         List<Integer> ans = new ArrayList<>();
         int[] numlist = {0,0,0};
         int[] num2List = {2,1,2,3,2,4,2,5};
@@ -87,16 +96,17 @@ public class 모의고사 {
         int num1 =0;
         int num2 =0;
         int num3 =0;
-        for (int i=1; i<answers.length+1; i++) {
-            if (answers[i - 1] % 5 == i % 5) {
+        for (int i=0; i<answers.length; i++) {
+            if (answers[i] % 5 == (i+1) % 5) {
                 numlist[0]++;
                 num1++;
+                System.out.println(i+"ㅎ");
             }
-            if (answers[i - 1] == num2List[(i%8)-1]){
+            if (answers[i] == num2List[i%8]){
                 numlist[1]++;
                 num2++;
             }
-            if (answers[i-1] == num3List[(i%10)-1]){
+            if (answers[i] == num3List[i%10]){
                 numlist[2]++;
                 num3++;
             }
@@ -107,12 +117,13 @@ public class 모의고사 {
                 int big = numlist[i];
                 int small = numlist[j];
                 if(numlist[i]<numlist[j]){
-                    numlist[i] = big;
-                    numlist[j] = small;
+                    numlist[i] = small;
+                    numlist[j] = big;
                 }
             }
         }
-        System.out.println(ans.get(0) +"g"+ans.get(1) +"g"+ans.get(2));
+        System.out.println(numlist[0]);
+        System.out.println(num1+";;;"+num2+";;;"+num3+";;;");
         if(numlist[0] == num1){
             ans.add(1);
         }
