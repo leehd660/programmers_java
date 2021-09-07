@@ -4,7 +4,8 @@ public class 가장큰정사각형찾기 {
     public static void main(String[] args) {
         int[][] arr = {{0,1,1,1},{1,1,1,1},{1,1,1,1},{0,0,1,0}};
         int[][] arr1 = {{0,0,1,1},{1,1,1,1}};
-        System.out.println(solution1(arr1));
+        int[][] arr2 = {{1,1,1}};
+        System.out.println(solution1(arr2));
     }
     public int solution(int [][]board) {
         int answer = 1234;
