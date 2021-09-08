@@ -130,4 +130,33 @@ public class 가장큰정사각형찾기 {
 
         return answer;
     }
+
+    public int solution2(int [][]board)
+    {
+        if(allZero(board)){
+            return 0;
+        }
+        int answer = 1;
+        for (int i = 1; i < board.length; i++) {
+            for (int j = 1; j < board[0].length; j++) {
+                if(board[i][j] == 0) continue;
+                board[i][j] = Math.min(Math.min(board[i - 1][j], board[i][j - 1]), board[i - 1][j - 1]) + 1;
+                answer = Math.max(answer, board[i][j]);
+            }
+        }
+
+        return answer * answer;
+    }
+
+    public static boolean allZero(int[][] arr){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                if (arr[i][j] == 1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
